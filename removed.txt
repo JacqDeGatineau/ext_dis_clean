@@ -1,0 +1,27 @@
+Duplicate files removed: 
+
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/DeadAstronaut Tremshifter copy.pdf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/Sports-World
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/Sports-World/Sports World-Regular.ttf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/Sports-World/Sports World-Regular.otf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/Sports-World/ffonts.net.htm
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/Sports-World/ffonts.net.txt
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/Sports-World/install-a-new-font.txt
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu/DeadAstronaut Tremshifter copy.pdf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu/Sports-World
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu/Sports-World/Sports World-Regular.ttf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu/Sports-World/Sports World-Regular.otf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu/Sports-World/ffonts.net.htm
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu/Sports-World/ffonts.net.txt
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/yu/Sports-World/install-a-new-font.txt
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj/DeadAstronaut Tremshifter copy.pdf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj/Sports-World
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj/Sports-World/Sports World-Regular.ttf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj/Sports-World/Sports World-Regular.otf
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj/Sports-World/ffonts.net.htm
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj/Sports-World/ffonts.net.txt
+/Users/henrikheinonen/PythonProjects/kovo_siivous_test/er/untitder/glj/Sports-World/install-a-new-font.txt

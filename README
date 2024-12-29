@@ -1,0 +1,6 @@
+My external hard drive for my computer's backup was full, so I created a script to 
+check between my two external hard drives for duplicate files. 
+It checks the drives or directories for duplicates and print the duplictaes to a file.
+
+After the search the program asks whether the user wants to remove the files.
+If the user selects Y, the prgram remves the duplicates files and directories, if they are empty.
