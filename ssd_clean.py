@@ -79,7 +79,7 @@ def remove_duplicates(to_remove, disk2_path):
 
 if __name__ == "__main__":
     disk1_path = (".")
-    disk2_path = "/Users/henrikheinonen/PythonProjects/kovo_siivous_test"
+    disk2_path = "path"
 
     if not os.path.isdir(disk1_path):
         print(f"Error: Directory '{disk1_path}' does not exist or is not a valid directory.")
