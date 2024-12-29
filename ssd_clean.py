@@ -5,6 +5,8 @@ import shutil
 
 def hashfile(filename):
     try:
+        if os.path.isdir(filename):
+            return None  # Skip directories
         with open (filename, "rb") as f:
             hasher = hashlib.sha256()
             while True:
@@ -49,8 +51,8 @@ def record(dupl):
         print(f"{len(dupl)} duplicates found")
         file.write(f"Found {len(dupl)} duplicate files: \n\n")
         for d in dupl:
-            print(f"File: {dupl[0]}\nDuplicate: {dupl[1]}")
-            file.write(f"File: {dupl[0]}\nDuplicate: {dupl[1]}\n\n")
+            print(f"File: {d[0]}\nDuplicate: {d[1]}")
+            file.write(f"File: {d[0]}\nDuplicate: {d[1]}\n\n")
    
 
 def remove_duplicates(to_remove, disk2_path):
@@ -90,7 +92,7 @@ if __name__ == "__main__":
     
     if duplicates:
         record(duplicates)
-        remove_duplicates(to_remove)
+        remove_duplicates(to_remove, disk2_path)
     else:
         print("No duplicate files found.")
 
