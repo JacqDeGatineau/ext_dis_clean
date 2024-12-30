@@ -2,14 +2,19 @@ import os
 import hashlib
 import sys
 import shutil
+import concurrent.futures
 
 def hashfile(filename, fast=True):
     try:
+        if filename.endswith('.fseventsd') or filename.startswith('/.fseventsd') or '.fseventsd' in filename:
+            print(f"Skipping .fseventsd file: {filename}")
+            return None  # Skip .fseventsd files
+        
         if 'Backups.backupdb' in filename or filename.startswith('/Volumes/.timemachine'):
             print(f"Skipping Time Machine file: {filename}")
             return None # skip time machine backups
 
-        if os.path.isdir(filename) or filename.startswith('.'):
+        if os.path.isdir(filename) or os.path.basename(filename).startswith('.'):
             return None  # Skip directories and system files
         
         hasher = hashlib.md5() # not cryptographically secure, but ok for file checksums
@@ -24,9 +29,16 @@ def hashfile(filename, fast=True):
                         break
                     hasher.update(data)
             return hasher.hexdigest()
+    except PermissionError as e:
+        print(f"Permission denied: {filename}")
+        return None
     except Exception as e:
         print(f"Error hashing file {filename}: {e}")
         return None
+
+def parallel_hashing(files):
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        return list(executor.map(hashfile, files))
 
 def get_all_files(directory):
     files = []
@@ -51,7 +63,7 @@ def find_duplicates(dir_1, dir_2):
     duplicates = []
     to_remove = []
 
-    #get hash with caching
+    # Helper to get a file hash with caching
     def get_file_hash(file):
         if file in hash_cache:
             return hash_cache[file]
@@ -60,13 +72,18 @@ def find_duplicates(dir_1, dir_2):
             hash_cache[file] = file_hash
         return file_hash
 
-    dir_1_hashes = {get_file_hash(file): file for file in dir_1_files}
+    # Parallel hashing for dir_1
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        dir_1_hashes = {
+            file_hash: file for file, file_hash in zip(dir_1_files, executor.map(get_file_hash, dir_1_files)) if file_hash
+        }
 
-    for file in dir_2_files:
-        file_hash = get_file_hash(file)
-        if file_hash in dir_1_hashes:
-            duplicates.append((dir_1_hashes[file_hash], file))
-            to_remove.append(file)
+    # Parallel hashing for dir_2
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        for file, file_hash in zip(dir_2_files, executor.map(get_file_hash, dir_2_files)):
+            if file_hash and file_hash in dir_1_hashes:
+                duplicates.append((dir_1_hashes[file_hash], file))
+                to_remove.append(file)
 
     return duplicates, to_remove
 
